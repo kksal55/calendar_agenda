@@ -22,7 +22,6 @@ class CalendarAgenda extends StatefulWidget implements PreferredSizeWidget {
   final SelectedDayPosition selectedDayPosition;
   final Color? selectedDateColor;
   final Color? dateColor;
-  final Color? headerDateColor;
   final Color? calendarBackground;
   final Color? calendarEventSelectedColor;
   final Color? calendarEventColor;
@@ -51,7 +50,6 @@ class CalendarAgenda extends StatefulWidget implements PreferredSizeWidget {
     this.controller,
     this.selectedDateColor = Colors.black,
     this.dateColor = Colors.white,
-    this.headerDateColor = Colors.white,
     this.calendarBackground = Colors.white,
     this.calendarEventSelectedColor = Colors.white,
     this.calendarEventColor = Colors.blue,
@@ -240,7 +238,7 @@ class CalendarAgendaState extends State<CalendarAgenda>
                                   fontSize: 22.0,
                                   color: isSelected
                                       ? widget.selectedDateColor
-                                      : widget.headerDateColor,
+                                      : widget.dateColor,
                                   fontWeight: isSelected
                                       ? FontWeight.bold
                                       : FontWeight.w500),
@@ -256,7 +254,7 @@ class CalendarAgendaState extends State<CalendarAgenda>
                                 fontSize: 12.0,
                                 color: isSelected
                                     ? widget.selectedDateColor
-                                    : widget.headerDateColor,
+                                    : widget.dateColor,
                                 fontWeight: isSelected
                                     ? FontWeight.bold
                                     : FontWeight.w400,
@@ -289,13 +287,12 @@ class CalendarAgendaState extends State<CalendarAgenda>
           Positioned(
             top: widget.appbar ? 50.0 : 20.0,
             child: Padding(
-              padding: EdgeInsets.only(right: padding, left: 10),
+              padding: EdgeInsets.only(right: padding, left: 20),
               child: Container(
                 width: MediaQuery.of(context).size.width - padding,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    leading,
                     widget.fullCalendar!
                         ? GestureDetector(
                             onTap: () => widget.fullCalendar!
@@ -325,6 +322,7 @@ class CalendarAgendaState extends State<CalendarAgenda>
                             ),
                           )
                         : SizedBox(),
+                    leading,
                   ],
                 ),
               ),
@@ -406,7 +404,7 @@ class CalendarAgendaState extends State<CalendarAgenda>
                   startDate: widget.firstDate,
                   endDate: endDate,
                   padding: padding,
-                  dateColor: widget.dateColor,
+                  dateColor: Colors.black,
                   dateSelectedBg: widget.calendarEventColor,
                   dateSelectedColor: widget.calendarEventSelectedColor,
                   events: _eventDates,
