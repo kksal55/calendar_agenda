@@ -171,38 +171,9 @@ class CalendarAgendaState extends State<CalendarAgenda>
                         width: MediaQuery.of(context).size.width / 5 - 10,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: isSelected ? Colors.white : null,
-                          boxShadow: [
-                            isSelected
-                                ? BoxShadow(
-                                    color: Colors.black.withOpacity(0.2),
-                                    spreadRadius: 1,
-                                    blurRadius: 10,
-                                    offset: Offset(0, 3),
-                                  )
-                                : BoxShadow(
-                                    color: Colors.grey.withOpacity(0.0),
-                                    spreadRadius: 5,
-                                    blurRadius: 20,
-                                    offset: Offset(0, 3),
-                                  )
-                          ],
-                          image: isSelected
-                              ? DecorationImage(
-                                  image: widget.selectedDayLogo ??
-                                      MemoryImage(
-                                          base64.decode(uri.split(',').last)),
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black.withOpacity(0.8),
-                                      BlendMode.dstOut),
-                                )
-                              : DecorationImage(
-                                  image: MemoryImage(
-                                      base64.decode(uri.split(',').last)),
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black.withOpacity(0.9),
-                                      BlendMode.clear),
-                                ),
+                          color: isSelected
+                              ? Color.fromARGB(255, 0, 115, 176)
+                              : null,
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -300,21 +271,14 @@ class CalendarAgendaState extends State<CalendarAgenda>
                                 : null,
                             child: Row(
                               children: [
-                                Icon(
-                                  Icons.calendar_today,
-                                  size: 18.0,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 10.0,
-                                ),
                                 Text(
                                   DateFormat.yMMMM(Locale(_locale).toString())
                                       .format(_selectedDate!),
                                   style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 19.0,
+                                    color: Color.fromARGB(255, 0, 115, 176),
+                                    fontWeight: FontWeight.w500,
                                   ),
                                   textAlign: TextAlign.end,
                                 ),
