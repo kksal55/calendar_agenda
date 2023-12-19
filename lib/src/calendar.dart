@@ -277,7 +277,7 @@ class CalendarAgendaState extends State<CalendarAgenda>
                                   style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 19.0,
-                                    color: Color.fromARGB(255, 0, 115, 176),
+                                    color: Color.fromARGB(0, 0, 44, 255),
                                     fontWeight: FontWeight.w500,
                                   ),
                                   textAlign: TextAlign.end,
