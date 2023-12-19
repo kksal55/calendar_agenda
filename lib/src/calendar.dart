@@ -172,7 +172,7 @@ class CalendarAgendaState extends State<CalendarAgenda>
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           color: isSelected
-                              ? Color.fromARGB(255, 0, 115, 176)
+                              ? Color.fromARGB(0, 0, 115, 176)
                               : null,
                         ),
                         child: Column(
